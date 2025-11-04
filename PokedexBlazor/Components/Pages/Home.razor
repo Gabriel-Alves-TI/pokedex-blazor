@@ -1,7 +1,38 @@
 ﻿@page "/"
+@using Models
+@using PokedexBlazor.Util
+@inject PokeClient client
 
-<PageTitle>Home</PageTitle>
+<div class="container">
+    <img src="/img/pokemon_logo.png" alt="Pokedex Logo" class="app-title">
+    <div class="pokemon-row">
+        @foreach (var pokemon in pokemonList)
+        {
+            <div class="pokemon-card">
+                <img src="@pokemon.sprites.front_default" alt="Pokemon Sprite">
+                <h4 class="pokemon-name">@pokemon.name</h4>
+                <div class="type-row">
+                    @foreach (var type in pokemon.types)
+                    {
+                        <span class="type-badge" style="background-color: @PokeColor.GetTypeColor(@type.type.name)">@type.type.name</span>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
-<h1>Hello, world!</h1>
+<h1 class="text-primary">@pokemon.name</h1>
 
-Welcome to your new app.
+@code {
+    Pokemon pokemon = new Pokemon();
+    List<Pokemon> pokemonList = new List<Pokemon>();
+    protected override async Task OnInitializedAsync()
+    {
+        for (int i = 1;  i < 20; i++)
+        {
+            pokemonList.Add(await client.GetPokemon(i.ToString()));
+            StateHasChanged();
+        }
+    }
+}

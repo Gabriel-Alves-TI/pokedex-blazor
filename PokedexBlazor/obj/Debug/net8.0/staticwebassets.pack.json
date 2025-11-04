@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PokedexBlazor.bundle.scp.css",
+      "PackagePath": "staticwebassets\\PokedexBlazor.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\Pokeball.ico",
+      "PackagePath": "staticwebassets\\img\\Pokeball.ico"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\pokemon_logo.png",
+      "PackagePath": "staticwebassets\\img\\pokemon_logo.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PokedexBlazor.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.PokedexBlazor.props",
+      "PackagePath": "build\\PokedexBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PokedexBlazor.props",
+      "PackagePath": "buildMultiTargeting\\PokedexBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.PokedexBlazor.props",
+      "PackagePath": "buildTransitive\\PokedexBlazor.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

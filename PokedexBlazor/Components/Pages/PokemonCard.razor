@@ -1,0 +1,68 @@
+@page "/pokemon"
+@using PokedexBlazor.Models
+@using PokedexBlazor.Util
+@inject PokeClient client
+
+@if (pokemon == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class="container">
+        <div class="card">
+            @if (@pokemon.types != null && pokemon.types.Count > 0)
+            {
+                <div class="card-top" style="background-color: @PokeColor.GetTypeColor(@pokemon.types[0].type.name)">
+                    <img src="@pokemon.sprites?.front_default" alt="Pokemon Sprite" class="card-img-top">
+                </div>
+            }
+            <div class="inner-container">
+                <div class="stats-head">
+                    <div class="icon-container">
+                        <img src="/img/icon-insignia.png" alt="">
+                        <h1 class="pokemon-name card-title">@pokemon.name</h1>
+                    </div>
+                    <div class="pokemon-info">
+                        <h5>Height: @pokemon.height m</h5>
+                        <div>
+                            @foreach (var type in pokemon.types)
+                            {
+                                <span class="type-badge" style="background-color: @PokeColor.GetTypeColor(@type.type.name)">@type.type.name</span>
+                            }
+                        </div>
+                        <h5>Weight: @pokemon.weight kg</h5>
+                    </div>
+                </div>
+
+                <div class="stats-head">
+                    <div class="icon-container">
+                        <img src="" alt="">
+                        <h2>Stats</h2>
+                    </div>
+                    @foreach (var stat in pokemon.stats)
+                    {
+                        <div class="stat-bar">
+                            <h5 class="stat">@stat.stat.name: @stat.base_stat</h5>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @stat.base_stat%; background-color: @PokeColor.GetStatColor(@stat.stat.name)" aria-valuenow="100" aria-valuemin="0" aria-valuemax="200">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@code {
+    private Pokemon? pokemon;
+
+    protected override async Task OnInitializedAsync()
+    {
+        pokemon = await client.GetPokemon("1");
+    }
+}

@@ -7,10 +7,10 @@ namespace PokedexBlazor.Models
 {
     public class Pokemon
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Height { get; set; }
-        public int Weight { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public int height { get; set; }
+        public int weight { get; set; }
         public Sprites sprites { get; set; }
         public List<Stat> stats { get; set; }
         public List<Type> types { get; set;}

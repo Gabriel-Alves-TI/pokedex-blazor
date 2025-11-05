@@ -2,11 +2,19 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
+    max-height: 100vh;
+    overflow-y: auto;
     margin-top: 50px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
+    border: 2px solid #000;
+    border-radius: 15px;
 }
 
 .pokemon-row {
@@ -56,7 +64,19 @@ img {
     margin-right: 3px;
 }
 
+.div-title {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(161, 30, 30);
+    margin: 0px auto 50px;
+    border-radius: 50px;
+}
+
 .app-title {
     width: 400px;
-    margin: 0 auto 20px auto;
+    margin: auto auto;
+    padding: 5px;
 }

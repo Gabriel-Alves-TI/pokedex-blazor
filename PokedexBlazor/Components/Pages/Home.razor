@@ -3,36 +3,46 @@
 @using PokedexBlazor.Util
 @inject PokeClient client
 
-<div class="container">
+<div class="div-title">
     <img src="/img/pokemon_logo.png" alt="Pokedex Logo" class="app-title">
-    <div class="pokemon-row">
+</div>
+
+<div class="container">
+    <div class="pokemon-row mt-4 mb-4">
         @foreach (var pokemon in pokemonList)
         {
-            <div class="pokemon-card">
-                <img src="@pokemon.sprites.front_default" alt="Pokemon Sprite">
-                <h4 class="pokemon-name">@pokemon.name</h4>
-                <div class="type-row">
-                    @foreach (var type in pokemon.types)
-                    {
-                        <span class="type-badge" style="background-color: @PokeColor.GetTypeColor(@type.type.name)">@type.type.name</span>
-                    }
+            <a href="/pokemon/@pokemon.id">
+                <div class="pokemon-card">
+                    <img src="@pokemon.sprites.front_default" alt="Pokemon Sprite">
+                    <h4 class="pokemon-name">@pokemon.name</h4>
+                    <div class="type-row">
+                        @foreach (var type in pokemon.types)
+                        {
+                            <span class="type-badge" style="background-color: @PokeColor.GetTypeColor(@type.type.name)">@type.type.name</span>
+                        }
+                    </div>
                 </div>
-            </div>
+            </a>
         }
     </div>
 </div>
 
-<h1 class="text-primary">@pokemon.name</h1>
-
 @code {
-    Pokemon pokemon = new Pokemon();
-    List<Pokemon> pokemonList = new List<Pokemon>();
+    private List<Pokemon> pokemonList = new();
+
     protected override async Task OnInitializedAsync()
     {
-        for (int i = 1;  i < 20; i++)
+        // 1️⃣ Busca a lista leve com nomes e URLs
+        var pokemonEntries = await client.GetAllPokemons(151, 0);
+
+        // 2️⃣ Faz o download dos detalhes em paralelo (muito mais rápido que um por um)
+        var tasks = pokemonEntries.results.Select(async entry =>
         {
-            pokemonList.Add(await client.GetPokemon(i.ToString()));
-            StateHasChanged();
-        }
+            var pokemon = await client.GetPokemonByName(entry.name);
+            return pokemon;
+        });
+
+        // 3️⃣ Aguarda todos completarem
+        pokemonList = (await Task.WhenAll(tasks)).ToList();
     }
 }

@@ -2,7 +2,24 @@
 .page[b-bg7prnuyu4] {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;   
+    min-height: 100vh;
+}
+
+.background[b-bg7prnuyu4] {
+    position: absolute;
+    inset: 0;
+    background-image: url("/img/background-pokemon.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.page > *:not(.background)[b-bg7prnuyu4] {
+  position: relative;
+  z-index: 1;
 }
 
 main[b-bg7prnuyu4] {
@@ -206,11 +223,19 @@ main[b-bg7prnuyu4] {
     box-sizing: border-box;
 }
 
+a[b-o8hu5x7fmh] {
+    text-decoration: none;
+}
+
 .container[b-o8hu5x7fmh] {
+    max-height: 100vh;
+    overflow-y: auto;
     margin-top: 50px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
+    border: 2px solid #000;
+    border-radius: 15px;
 }
 
 .pokemon-row[b-o8hu5x7fmh] {
@@ -260,9 +285,21 @@ img[b-o8hu5x7fmh] {
     margin-right: 3px;
 }
 
+.div-title[b-o8hu5x7fmh] {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(161, 30, 30);
+    margin: 0px auto 50px;
+    border-radius: 50px;
+}
+
 .app-title[b-o8hu5x7fmh] {
     width: 400px;
-    margin: 0 auto 20px auto;
+    margin: auto auto;
+    padding: 5px;
 }
 /* _content/PokedexBlazor/Components/Pages/PokemonCard.razor.rz.scp.css */
 .pokemon-name[b-qju4aa34r2] {
@@ -280,11 +317,12 @@ img[b-qju4aa34r2] {
 .container[b-qju4aa34r2] {
     margin: 30px auto;
     width: 30%;
+    border-radius: 15px;
 }
 
 .inner-container[b-qju4aa34r2] {
     margin: 0 auto;
-    width: 100px;
+    width: 100% !important;
     text-align: center;
     padding: 20px;
     padding-top: 0px;
@@ -296,6 +334,7 @@ img[b-qju4aa34r2] {
     align-items: center;
     text-align: center;
     margin-bottom: 10px;
+    border-radius: 15px 15px 0px 0px;
 }
 
 .card[b-qju4aa34r2] {
@@ -338,8 +377,22 @@ img[b-qju4aa34r2] {
     margin-right: 10px;
 }
 
+#icon-pokeball[b-qju4aa34r2] {
+    width: 30px;
+    margin-right: 10px;
+}
+
 .icon-container[b-qju4aa34r2] {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.icon-container img[b-qju4aa34r2] {
+    width: 30px;
+}
+
+#arrow-back[b-qju4aa34r2] {
+    margin-top: 50px;
+    width: 80px;   
 }

@@ -30,12 +30,28 @@ namespace PokedexBlazor.Util
             return JsonSerializer.Deserialize<Pokemon>(content, options);
         }
 
-        public async Task<List<Pokemon>> GetAllPokemons(int limit, int offset)
+        public async Task<Pokemon> GetPokemonByName(string name)
         {
-            var response = await this.Client.GetAsync($"pokemon?limit={limit}&offset={offset}");
-            var content = await response.Content.ReadAsStringAsync();
+            var response = await this.Client.GetAsync($"https://pokeapi.co/api/v2/pokemon/{name}");
+            var content = await response.Content.ReadAsStreamAsync();
 
-            return JsonSerializer.Deserialize<List<Pokemon>>(content);
+            return await JsonSerializer.DeserializeAsync<Pokemon>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+        }
+
+        public async Task<PokemonList> GetAllPokemons(int limit, int offset)
+        {
+            var response = await this.Client.GetAsync($"https://pokeapi.co/api/v2/pokemon?limit={limit}&offset={offset}");
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStreamAsync();
+
+            return await JsonSerializer.DeserializeAsync<PokemonList>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
         }
     }
 }

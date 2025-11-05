@@ -25,8 +25,36 @@
       "PackagePath": "staticwebassets\\img\\Pokeball.ico"
     },
     {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\arrow-back.png",
+      "PackagePath": "staticwebassets\\img\\arrow-back.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\background-pokemon.png",
+      "PackagePath": "staticwebassets\\img\\background-pokemon.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\greatball-pixel.png",
+      "PackagePath": "staticwebassets\\img\\greatball-pixel.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\icon-insignia.png",
+      "PackagePath": "staticwebassets\\img\\icon-insignia.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\masterball-pixel.png",
+      "PackagePath": "staticwebassets\\img\\masterball-pixel.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\pokeball-pixel.png",
+      "PackagePath": "staticwebassets\\img\\pokeball-pixel.png"
+    },
+    {
       "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\pokemon_logo.png",
       "PackagePath": "staticwebassets\\img\\pokemon_logo.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\Gabriel-arquivos\\pokedex-blazor\\PokedexBlazor\\wwwroot\\img\\ultraball-pixel.png",
+      "PackagePath": "staticwebassets\\img\\ultraball-pixel.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PokedexBlazor.Microsoft.AspNetCore.StaticWebAssets.props",

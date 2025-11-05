@@ -1,4 +1,4 @@
-@page "/pokemon"
+@page "/pokemon/{PokemonId}"
 @using PokedexBlazor.Models
 @using PokedexBlazor.Util
 @inject PokeClient client
@@ -20,24 +20,24 @@ else
             <div class="inner-container">
                 <div class="stats-head">
                     <div class="icon-container">
-                        <img src="/img/icon-insignia.png" alt="">
+                        <img src="img/@PokeUtil.GetRandomBall()" alt="" id="icon-pokeball">
                         <h1 class="pokemon-name card-title">@pokemon.name</h1>
                     </div>
                     <div class="pokemon-info">
-                        <h5>Height: @pokemon.height m</h5>
+                        <h5>Height: @PokeUtil.GetPokemonHeightInMeters(@pokemon.height) m</h5>
                         <div>
                             @foreach (var type in pokemon.types)
                             {
                                 <span class="type-badge" style="background-color: @PokeColor.GetTypeColor(@type.type.name)">@type.type.name</span>
                             }
                         </div>
-                        <h5>Weight: @pokemon.weight kg</h5>
+                        <h5>Weight: @PokeUtil.GetPokemonWeightInKilograms(@pokemon.weight) kg</h5>
                     </div>
                 </div>
 
                 <div class="stats-head">
                     <div class="icon-container">
-                        <img src="" alt="">
+                        <img src="/img/icon-insignia.png" alt="Stats">
                         <h2>Stats</h2>
                     </div>
                     @foreach (var stat in pokemon.stats)
@@ -53,16 +53,24 @@ else
                 </div>
             </div>
         </div>
+        <div class="icon-container">
+            <a href="/">
+                <img src="img/arrow-back.png" alt="" id="arrow-back">
+            </a>
+        </div>
     </div>
 }
 
 
 
 @code {
+    [Parameter]
+    
+    public string PokemonId { get; set;}
     private Pokemon? pokemon;
 
     protected override async Task OnInitializedAsync()
     {
-        pokemon = await client.GetPokemon("1");
+        pokemon = await client.GetPokemon(PokemonId);
     }
 }

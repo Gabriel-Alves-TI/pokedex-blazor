@@ -1,7 +1,24 @@
 .page[b-bg7prnuyu4] {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;   
+    min-height: 100vh;
+}
+
+.background[b-bg7prnuyu4] {
+    position: absolute;
+    inset: 0;
+    background-image: url("/img/background-pokemon.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.page > *:not(.background)[b-bg7prnuyu4] {
+  position: relative;
+  z-index: 1;
 }
 
 main[b-bg7prnuyu4] {
